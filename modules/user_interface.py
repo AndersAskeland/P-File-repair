@@ -23,19 +23,23 @@ from modules.classes import PFile
 # 2 - Classes
 # ------------------------------------------------------------------------------
 class MainWindow(QMainWindow):
-    '''Contains all functions and interactions with main user interace.
+    '''Main user interface window.
+    
+    Class that contains all functions and interactions related to
+    the main user interace, including initialization of ui, loading
+    custom widgets and settings and establishing ui connections.
 
     Args:
         None
     
-    Returns:
+    Attributes:
         None
-    
     '''
 
-    # [Class attributes] #
+    # ---- Class attributes ---- #
 
-    # [Instance attributes] #
+
+    # ---- Instance/object attributes ---- #
     def __init__(self):
         super(MainWindow, self).__init__()
 
@@ -51,9 +55,10 @@ class MainWindow(QMainWindow):
         # Connections
         self.connections()
 
-    # [Functions] #
+
+    # ---- Class functions ---- #
     def initialize_ui(self):
-        ''' [Class function] - Loads UI '''
+        ''' [Class function] - Loads UI and sets window size '''
         
         # Load UI from imported py/ui file
         self.ui = Ui_MainWindow()

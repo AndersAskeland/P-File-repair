@@ -5,7 +5,7 @@
 #
 # ------------------------------------------------------------------------------
 # ------------------------------------------------------------------------------
-# Imports
+# 1- Imports
 # ------------------------------------------------------------------------------
 # External modules
 import sys, os, struct
@@ -18,10 +18,30 @@ import sys, os, struct
 
 
 # ------------------------------------------------------------------------------
-# Classes
+# 2 - Classes
 # ------------------------------------------------------------------------------
 class PFile:
-    ''' Class attributes '''
+    '''Reads and fixes v. 28 p-files
+    
+    Class that contains functions and data related to reading and
+    converting v. 28 GE p-files.  
+
+    TODO:
+        * Make a parent class that contains information about location, size, version
+            etc. Perhaps a p-file (parent) + header (child) + data (child).
+
+    Args:
+        None
+    
+    Attributes:
+        header (dict): Contains dictionary keys associated to header. 
+            Actual values are read during __init__
+        location (dict): Contains location, data type, size and n byte
+            location information related to reading data from the
+            binary file.
+    '''
+    
+    # ---- Class attributes ---- #
     # Define header
     header = dict.fromkeys(["hdr_rev", "off_data", "nechoes", "nframes", \
     "frame_size", "rcv", "rhuser19", "spec_width", "csi_dims", "xcsi", "ycsi", \
@@ -45,7 +65,7 @@ class PFile:
     location["te"] = {"loc": 1148, "type": "h", "size": 2, "n": 1}
 
 
-    ''' Instance attributes '''
+    # ---- Instance/object attributes ---- #
     def __init__(self, file_path):
         # General variables
         self.file = open(file_path, "rb")
