@@ -65,7 +65,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     def select_p_folder(self) -> None:
         ''' Select folder containing several p-files. '''
         self.dialog_file_dialog(folder=True)
-        
+
     def select_p_file(self,) -> None:
         ''' Select single file p-file. '''
         self.dialog_file_dialog(folder=False)
@@ -123,4 +123,4 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             p_file = pFile(path=self.p_file_path, folder=self.folder)
 
             # Write TODO: define output surfix
-            p_file.write_data(path="/Users/andersaskeland/Documents/Statistics (Local)/GE_MRI/test_GUI.7")
+            p_file.repair_p_file(output_path="/Users/andersaskeland/Documents/Statistics (Local)/GE_MRI/test_GUI.7")
