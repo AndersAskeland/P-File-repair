@@ -56,15 +56,19 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.setMinimumSize(window_size)
         
         # Signals
-        self.btn_select_folder.clicked.connect(self.select_p_file)
+        self.btn_select_folder.clicked.connect(self.select_p_folder)
         self.btn_select_file.clicked.connect(self.select_p_file)
         self.btn_convert.clicked.connect(self.convert_p_file)
 
 
     # ---- Slots ---- #
-    def select_p_file(self) -> None:
-        ''' Select folder containing several p-files or single file p-file. '''
-        self.dialog_file_dialog()
+    def select_p_folder(self) -> None:
+        ''' Select folder containing several p-files. '''
+        self.dialog_file_dialog(folder=True)
+        
+    def select_p_file(self,) -> None:
+        ''' Select single file p-file. '''
+        self.dialog_file_dialog(folder=False)
 
     def convert_p_file(self) -> None:
         ''' Converts p_file or folder of p-files. '''
@@ -72,7 +76,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
 
     # ---- Functions ---- #
-    def dialog_file_dialog(self) -> None:
+    def dialog_file_dialog(self, folder: bool) -> None:
         ''' Dialog to select folder or file using native wizard. 
         
         Args:
@@ -81,11 +85,11 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         Attributes:
             None
         '''
-
+        print(folder)
         dlg = QFileDialog()
         
         # Check if folder or file.
-        if folder:
+        if self.folder:
             dlg.setLabelText(QFileDialog.Accept, "Select directory")
             dlg.setFileMode(QFileDialog.Directory)
             dlg.Option.ShowDirsOnly
