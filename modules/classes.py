@@ -97,13 +97,12 @@ class pFile(Header):
         self.excess_data_points = self.surplus_data_points / self.coils
 
         # Print
-        print(f"Header = {self.header}")
-        print(f"Coils = {self.coils}")
-        print(f"Items = {self.data_points}")
-        print(f"Expected items = {self.expected_data_points}")
-        print(f"Surplus items = {self.surplus_data_points}")
-        print(f"Excess items = {self.excess_data_points}")
-        # TODO - Check function. Throw exception if expected match items. No need to run anything then.
+        # print(f"Header = {self.header}")
+        # print(f"Coils = {self.coils}")
+        # print(f"Items = {self.data_points}")
+        # print(f"Expected items = {self.expected_data_points}")
+        # print(f"Surplus items = {self.surplus_data_points}")
+        # print(f"Excess items = {self.excess_data_points}")
 
 
     # ---- Functions ---- #
@@ -126,7 +125,6 @@ class pFile(Header):
         with open(output_path, "wb") as file:
             file.write(self.header_raw)
             file.write(self.extract_data_binary)
-            print("P-file was converted sucessfully!")
 
     def read_header(self, file: __file__, header_locations: Header, header: Header) -> Header:
         ''' Reads header data based on location data '''
