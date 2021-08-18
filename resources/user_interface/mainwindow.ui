@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1110</width>
-    <height>480</height>
+    <height>485</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -29,10 +29,16 @@
     </property>
     <item>
      <widget class="QFrame" name="sidebar_top">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
       <property name="maximumSize">
        <size>
         <width>16777215</width>
-        <height>16777215</height>
+        <height>140</height>
        </size>
       </property>
       <property name="autoFillBackground">
