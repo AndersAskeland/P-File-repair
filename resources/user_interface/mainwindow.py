@@ -28,7 +28,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
         self.sidebar_top = QFrame(self.centralwidget)
         self.sidebar_top.setObjectName(u"sidebar_top")
-        self.sidebar_top.setMaximumSize(QSize(16777215, 120))
+        self.sidebar_top.setMaximumSize(QSize(16777215, 16777215))
         self.sidebar_top.setAutoFillBackground(False)
         self.sidebar_top.setFrameShape(QFrame.NoFrame)
         self.sidebar_top.setFrameShadow(QFrame.Raised)
