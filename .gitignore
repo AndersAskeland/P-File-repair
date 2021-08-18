@@ -16,10 +16,13 @@ resources/data*
 # Ignore files
 config.ini
 testing.py
+build.sh
+run.sh
 .DS_Store
 MyApplication.spec
 main.spec
 export.csv
+build.sh
 main.spec
 ui_mainwindow.py
 resources/settings/config.ini

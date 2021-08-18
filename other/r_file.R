@@ -23,8 +23,8 @@ read_pfile_header <- function(file_name) {
   # Set variables
   header <- vector(mode = "list", length = 15)
   names(header) <- c("hdr_rev", "text", "off_data", "nechoes", "nframes", "frame_size",
-                     "rcv", "rhuser19", "spec_width", "csi_dims", "xcsi", "ycsi",
-                     "zcsi", "ps_mps_freq", "te")
+                      "rcv", "rhuser19", "spec_width", "csi_dims", "xcsi", "ycsi",
+                      "zcsi", "ps_mps_freq", "te")
 
   # Set byte location of various stuff
   location <- header
@@ -59,7 +59,7 @@ read_pfile_header <- function(file_name) {
 
   seek(connection, location$frame_size)
   header$frame_size <- readBin(connection, "int", size = 2, signed = FALSE,
-                               endian = endian)
+                                endian = endian)
 
   seek(connection, location$rcv)
   header$rcv <- readBin(connection, "int", n = 8, size = 2, endian = endian)
@@ -100,8 +100,8 @@ read_pfile_header <- function(file_name) {
 mrs_data_function <- function(data, ft, resolution, ref, nuc, freq_domain, affine, meta, extra) {
 
   mrs_data <- list(data = data, ft = ft, resolution = resolution, ref = ref,
-                   nuc = nuc, freq_domain = freq_domain, affine = affine,
-                   meta = meta, extra = extra)
+                    nuc = nuc, freq_domain = freq_domain, affine = affine,
+                    meta = meta, extra = extra)
 
   class(mrs_data) <- "mrs_data"
   return(mrs_data)

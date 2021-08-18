@@ -57,9 +57,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.btn_convert.button(QDialogButtonBox.Ok).setText("Convert")
         self.btn_convert.button(QDialogButtonBox.Ok).setEnabled(False)
 
-        window_size = QSize(1350/1.4, 800/2) # TODO: Remember to change size
+        window_size = QSize(1350/1.4, 800/2)
         self.resize(window_size)
-        self.setMinimumSize(window_size)
+        self.setFixedSize(window_size)
         
         # Signals
         self.btn_select_folder.clicked.connect(self.select_p_folder)

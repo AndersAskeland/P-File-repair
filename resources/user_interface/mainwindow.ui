@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1334</width>
-    <height>604</height>
+    <width>960</width>
+    <height>480</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -45,10 +45,37 @@
        <enum>QFrame::Raised</enum>
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout">
+       <property name="spacing">
+        <number>15</number>
+       </property>
+       <property name="leftMargin">
+        <number>20</number>
+       </property>
        <item>
         <widget class="QLabel" name="img_logo">
+         <property name="minimumSize">
+          <size>
+           <width>80</width>
+           <height>80</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>80</width>
+           <height>80</height>
+          </size>
+         </property>
          <property name="text">
-          <string>    LOGO    </string>
+          <string/>
+         </property>
+         <property name="pixmap">
+          <pixmap resource="../graphics/icons.qrc">:/Logo/logo.png</pixmap>
+         </property>
+         <property name="scaledContents">
+          <bool>true</bool>
+         </property>
+         <property name="wordWrap">
+          <bool>false</bool>
          </property>
         </widget>
        </item>
@@ -80,6 +107,12 @@
        <enum>QFrame::Raised</enum>
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <property name="spacing">
+        <number>15</number>
+       </property>
+       <property name="leftMargin">
+        <number>20</number>
+       </property>
        <item>
         <widget class="QFrame" name="frame_concent">
          <property name="frameShape">
@@ -89,7 +122,13 @@
           <enum>QFrame::Raised</enum>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_3">
+          <property name="spacing">
+           <number>3</number>
+          </property>
           <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
            <number>12</number>
           </property>
           <property name="bottomMargin">
@@ -127,7 +166,7 @@
             <property name="minimumSize">
              <size>
               <width>0</width>
-              <height>50</height>
+              <height>0</height>
              </size>
             </property>
             <property name="frameShape">
@@ -183,13 +222,13 @@
         <widget class="QCard" name="frame_header">
          <property name="minimumSize">
           <size>
-           <width>300</width>
+           <width>270</width>
            <height>0</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
-           <width>300</width>
+           <width>270</width>
            <height>16777215</height>
           </size>
          </property>
@@ -203,28 +242,28 @@
           <item>
            <widget class="QLabel" name="label">
             <property name="text">
-             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;Header&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;Header information&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
             </property>
            </widget>
           </item>
           <item>
            <widget class="QStackedWidget" name="stackedWidget">
             <property name="currentIndex">
-             <number>1</number>
+             <number>0</number>
             </property>
             <widget class="QWidget" name="page">
              <layout class="QVBoxLayout" name="verticalLayout_4">
               <item>
                <widget class="QLabel" name="label_4">
                 <property name="text">
-                 <string>TextLabel</string>
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; color:#ff0019;&quot;&gt;Not yet implemented&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                 </property>
                </widget>
               </item>
               <item>
                <widget class="QLabel" name="label_2">
                 <property name="text">
-                 <string>PAGE 1</string>
+                 <string/>
                 </property>
                </widget>
               </item>
@@ -235,14 +274,14 @@
               <item>
                <widget class="QLabel" name="label_5">
                 <property name="text">
-                 <string>PAGE 2</string>
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Not yet implemented&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                 </property>
                </widget>
               </item>
               <item>
                <widget class="QLabel" name="label_3">
                 <property name="text">
-                 <string>PAGE 2</string>
+                 <string/>
                 </property>
                </widget>
               </item>
@@ -276,10 +315,16 @@
     </item>
     <item>
      <widget class="QFrame" name="sidebar_bottom">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>0</height>
+       </size>
+      </property>
       <property name="maximumSize">
        <size>
         <width>16777215</width>
-        <height>40</height>
+        <height>16777215</height>
        </size>
       </property>
       <property name="frameShape">
@@ -290,7 +335,7 @@
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout_4">
        <property name="bottomMargin">
-        <number>0</number>
+        <number>12</number>
        </property>
        <item>
         <spacer name="horizontalSpacer">
@@ -299,35 +344,22 @@
          </property>
          <property name="sizeHint" stdset="0">
           <size>
-           <width>1072</width>
-           <height>17</height>
+           <width>455</width>
+           <height>20</height>
           </size>
          </property>
         </spacer>
        </item>
        <item>
-        <widget class="QPushButton" name="btn_cancel">
-         <property name="text">
-          <string>Cancel</string>
+        <widget class="QDialogButtonBox" name="btn_convert">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
          </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="btn_convert">
-         <property name="minimumSize">
-          <size>
-           <width>150</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="text">
-          <string>Convert</string>
-         </property>
-         <property name="checkable">
-          <bool>false</bool>
-         </property>
-         <property name="default">
-          <bool>false</bool>
+         <property name="standardButtons">
+          <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
          </property>
         </widget>
        </item>
@@ -341,12 +373,11 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1334</width>
+     <width>960</width>
      <height>22</height>
     </rect>
    </property>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <customwidgets>
   <customwidget>
@@ -356,6 +387,8 @@
    <container>1</container>
   </customwidget>
  </customwidgets>
- <resources/>
+ <resources>
+  <include location="../graphics/icons.qrc"/>
+ </resources>
  <connections/>
 </ui>
