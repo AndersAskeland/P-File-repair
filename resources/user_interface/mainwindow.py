@@ -12,8 +12,6 @@ from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
 
-from modules.property import QCard
-
 import icons_rc
 
 class Ui_MainWindow(object):
@@ -124,72 +122,6 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_3.addWidget(self.frame_concent)
 
-        self.frame_header = QCard(self.content)
-        self.frame_header.setObjectName(u"frame_header")
-        self.frame_header.setMinimumSize(QSize(270, 0))
-        self.frame_header.setMaximumSize(QSize(270, 16777215))
-        self.frame_header.setFrameShape(QFrame.NoFrame)
-        self.frame_header.setFrameShadow(QFrame.Raised)
-        self.verticalLayout = QVBoxLayout(self.frame_header)
-        self.verticalLayout.setObjectName(u"verticalLayout")
-        self.label = QLabel(self.frame_header)
-        self.label.setObjectName(u"label")
-
-        self.verticalLayout.addWidget(self.label)
-
-        self.stackedWidget = QStackedWidget(self.frame_header)
-        self.stackedWidget.setObjectName(u"stackedWidget")
-        self.page = QWidget()
-        self.page.setObjectName(u"page")
-        self.verticalLayout_4 = QVBoxLayout(self.page)
-        self.verticalLayout_4.setObjectName(u"verticalLayout_4")
-        self.label_4 = QLabel(self.page)
-        self.label_4.setObjectName(u"label_4")
-
-        self.verticalLayout_4.addWidget(self.label_4)
-
-        self.label_2 = QLabel(self.page)
-        self.label_2.setObjectName(u"label_2")
-
-        self.verticalLayout_4.addWidget(self.label_2)
-
-        self.stackedWidget.addWidget(self.page)
-        self.page_2 = QWidget()
-        self.page_2.setObjectName(u"page_2")
-        self.verticalLayout_5 = QVBoxLayout(self.page_2)
-        self.verticalLayout_5.setObjectName(u"verticalLayout_5")
-        self.label_5 = QLabel(self.page_2)
-        self.label_5.setObjectName(u"label_5")
-
-        self.verticalLayout_5.addWidget(self.label_5)
-
-        self.label_3 = QLabel(self.page_2)
-        self.label_3.setObjectName(u"label_3")
-
-        self.verticalLayout_5.addWidget(self.label_3)
-
-        self.stackedWidget.addWidget(self.page_2)
-
-        self.verticalLayout.addWidget(self.stackedWidget)
-
-        self.horizontalLayout_6 = QHBoxLayout()
-        self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
-        self.pushButton_2 = QPushButton(self.frame_header)
-        self.pushButton_2.setObjectName(u"pushButton_2")
-
-        self.horizontalLayout_6.addWidget(self.pushButton_2)
-
-        self.pushButton_3 = QPushButton(self.frame_header)
-        self.pushButton_3.setObjectName(u"pushButton_3")
-
-        self.horizontalLayout_6.addWidget(self.pushButton_3)
-
-
-        self.verticalLayout.addLayout(self.horizontalLayout_6)
-
-
-        self.horizontalLayout_3.addWidget(self.frame_header)
-
 
         self.verticalLayout_2.addWidget(self.content)
 
@@ -225,9 +157,6 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(0)
-
-
         QMetaObject.connectSlotsByName(MainWindow)
     # setupUi
 
@@ -240,12 +169,5 @@ class Ui_MainWindow(object):
         self.lineEdit_selection.setPlaceholderText("")
         self.btn_select_folder.setText(QCoreApplication.translate("MainWindow", u"Select folder", None))
         self.btn_select_file.setText(QCoreApplication.translate("MainWindow", u"Select file", None))
-        self.label.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:18pt;\">Header information</span></p></body></html>", None))
-        self.label_4.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" color:#ff0019;\">Not yet implemented</span></p></body></html>", None))
-        self.label_2.setText("")
-        self.label_5.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\">Not yet implemented</p></body></html>", None))
-        self.label_3.setText("")
-        self.pushButton_2.setText(QCoreApplication.translate("MainWindow", u"Previous", None))
-        self.pushButton_3.setText(QCoreApplication.translate("MainWindow", u"Next", None))
     # retranslateUi
 
