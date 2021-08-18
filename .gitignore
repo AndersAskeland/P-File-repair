@@ -8,6 +8,8 @@ dist
 pyinstaller
 __build__
 old_versions
+.qt_for_python
+.vscode
 
 # Ignore directory but not outside (you need a gitkeep file)
 resources/data*
@@ -16,8 +18,8 @@ resources/data*
 # Ignore files
 config.ini
 testing.py
+testing*
 build.sh
-run.sh
 .DS_Store
 MyApplication.spec
 main.spec
