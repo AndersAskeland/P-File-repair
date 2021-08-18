@@ -25,6 +25,9 @@ if __name__ == "__main__":
     # Create application
     app = QApplication(sys.argv)
 
+    # Change style
+    app.setStyle("Fusion")
+
     # Show GUI window
     window = MainWindow()
     window.show()
