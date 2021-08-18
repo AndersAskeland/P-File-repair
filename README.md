@@ -10,7 +10,7 @@ Some code is adapted from the "spant" package (https://cran.r-project.org/web/pa
 * Select folder or single file
 * Fix p-file
 
-### Future features
+### Possible future features
 * Set custom surfix/prefix
 * View header information
 
