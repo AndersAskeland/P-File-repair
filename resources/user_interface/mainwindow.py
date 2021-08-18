@@ -35,7 +35,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout = QHBoxLayout(self.sidebar_top)
         self.horizontalLayout.setSpacing(15)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.horizontalLayout.setContentsMargins(20, -1, -1, -1)
+        self.horizontalLayout.setContentsMargins(20, -1, 60, -1)
         self.img_logo = QLabel(self.sidebar_top)
         self.img_logo.setObjectName(u"img_logo")
         self.img_logo.setMinimumSize(QSize(80, 80))
@@ -55,6 +55,7 @@ class Ui_MainWindow(object):
         self.label_title.setSizePolicy(sizePolicy)
         self.label_title.setMaximumSize(QSize(16777215, 16777215))
         self.label_title.setTextFormat(Qt.RichText)
+        self.label_title.setWordWrap(True)
 
         self.horizontalLayout.addWidget(self.label_title)
 
@@ -231,7 +232,7 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
         self.img_logo.setText("")
-        self.label_title.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:36pt;\">P-file repair</span></p><p align=\"justify\"><span style=\" font-size:18pt;\">Tool to repair corrupted GE p-files that are corrupted. This is specifically <br/>a problem for certain v. 28 p-files.</span></p></body></html>", None))
+        self.label_title.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:36pt;\">P-file repair</span></p><p align=\"justify\"><span style=\" font-size:18pt;\">Tool to repair corrupted GE p-files that are corrupted. This is specifically a problem for certain v. 28 p-files.</span></p></body></html>", None))
         self.description_1.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:18pt;\">Select P-file</span></p><p>Select a single p-file or a entire folder that contain p-files that you wish to repair.</p></body></html>", None))
         self.description_3.setText(QCoreApplication.translate("MainWindow", u"Location", None))
         self.lineEdit_selection.setPlaceholderText("")

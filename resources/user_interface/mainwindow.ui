@@ -51,6 +51,9 @@
        <property name="leftMargin">
         <number>20</number>
        </property>
+       <property name="rightMargin">
+        <number>60</number>
+       </property>
        <item>
         <widget class="QLabel" name="img_logo">
          <property name="minimumSize">
@@ -94,10 +97,13 @@
           </size>
          </property>
          <property name="text">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:36pt;&quot;&gt;P-file repair&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;Tool to repair corrupted GE p-files that are corrupted. This is specifically &lt;br/&gt;a problem for certain v. 28 p-files.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:36pt;&quot;&gt;P-file repair&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;Tool to repair corrupted GE p-files that are corrupted. This is specifically a problem for certain v. 28 p-files.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
          <property name="textFormat">
           <enum>Qt::RichText</enum>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
          </property>
         </widget>
        </item>
