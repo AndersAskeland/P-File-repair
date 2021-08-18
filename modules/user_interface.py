@@ -12,7 +12,7 @@ import glob
 import re
 import os
 from pathlib import Path # Window specific paths
-from PySide2.QtWidgets import QMainWindow, QFileDialog
+from PySide2.QtWidgets import QDialogButtonBox, QMainWindow, QFileDialog, QMessageBox, QWizard, QWizardPage
 from PySide2.QtCore import QSize
 
 # Local functions 
@@ -54,6 +54,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         # Define user interface
         self.setupUi(self)
         self.setWindowTitle("P-file repair")
+        self.btn_convert.button(QDialogButtonBox.Ok).setText("Convert")
+        self.btn_convert.button(QDialogButtonBox.Ok).setEnabled(False)
 
         window_size = QSize(1350/1.4, 800/2) # TODO: Remember to change size
         self.resize(window_size)
@@ -62,7 +64,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         # Signals
         self.btn_select_folder.clicked.connect(self.select_p_folder)
         self.btn_select_file.clicked.connect(self.select_p_file)
-        self.btn_convert.clicked.connect(self.convert_p_file)
+        self.btn_convert.accepted.connect(self.convert_p_file)
+        self.btn_convert.rejected.connect(self.exit_program)
 
 
     # ---- Slots ---- #
@@ -78,18 +81,61 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         ''' Converts p_file or folder of p-files. '''
         self.convert_p_file()
 
+    def exit_program(self) -> None:
+        ''' Exits probram. '''
+        self.close()
+
 
     # ---- Functions ---- #
-    def dialog_file_dialog(self, folder: bool) -> None:
-        ''' Dialog to select folder or file using native wizard. 
-        
+    def convert_p_file(self) -> None:
+        ''' Converts the selected P-file or files using the pFile class.
+
         Args:
             None
     
         Attributes:
-            None
+            None        
         '''
-        print(folder)
+
+        # Check if folder or single file
+        if self.folder:
+            glob_path = Path(self.p_file_path)  # Ensures compatable path over UNIX and Windows
+            os.chdir(glob_path)
+
+            # Check if there are actual p-files in folder
+            if not glob.glob("*.7"):
+                self.message_box(type=QMessageBox.Warning, message="No P-files found.")
+                return 0
+            
+            # Read all files
+            for p_file_path in glob_path.glob("*.7"):
+                output_path = os.path.splitext(p_file_path)[0] + "_repaired.7"
+
+                # Fix p-file
+                p_file = pFile(path=p_file_path, folder=self.folder)
+                p_file.repair_p_file(output_path)
+
+            # Information message    
+            self.message_box(type=QMessageBox.Information, message="P-files were successfully repaired.")
+            return 0
+
+
+
+        else:
+            output_path = os.path.splitext(self.p_file_path)[0] + "_repaired.7"
+
+            # Fix p-file
+            p_file = pFile(path=self.p_file_path, folder=self.folder)
+            p_file.repair_p_file(output_path)
+
+            # Message
+            self.message_box(type=QMessageBox.Information, message="P-file was successfully repaired.")
+
+
+    # ---- Dialogs ---- #
+    def dialog_file_dialog(self, folder: bool) -> None:
+        ''' Dialog to select folder or file using native wizard. '''
+
         dlg = QFileDialog()
         
         # Check if folder or file.
@@ -108,33 +154,15 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         if dlg.exec_():
             self.p_file_path = dlg.selectedFiles()[0]
             self.lineEdit_selection.setText(str(self.p_file_path))
-
-    def convert_p_file(self) -> None:
-        ''' Converts the selected P-file or files using the pFile class.
-
-        Args:
-            None
+            self.btn_convert.button(QDialogButtonBox.Ok).setEnabled(True)
     
-        Attributes:
-            None        
-        '''
-
-        # Check if folder or single file
-        if self.folder:
-            glob_path = Path(self.p_file_path)  # Ensures compatable path over UNIX and Windows
-
-            # Read all files
-            for p_file_path in glob_path.glob("*.7"):
-                output_path = os.path.splitext(p_file_path)[0] + "_repaired.7"
-
-                # Fix p-file
-                p_file = pFile(path=p_file_path, folder=self.folder)
-                p_file.repair_p_file(output_path)
-
-            #TODO: Go trough dict and find *.7 files. Make loop thereafter. Remember to do error checking (if no pfile).
-        else:
-            output_path = os.path.splitext(self.p_file_path)[0] + "_repaired.7"
-
-            # Fix p-file
-            p_file = pFile(path=self.p_file_path, folder=self.folder)
-            p_file.repair_p_file(output_path)
+    def message_box(self, type: QMessageBox, message: str) -> None:
+        ''' Dialog that display warnings '''
+        dlg = QMessageBox(self)
+        
+        dlg.setWindowTitle(message)
+        dlg.setText(message)
+        dlg.setStandardButtons(QMessageBox.Ok)
+        dlg.setIcon(type)
+        
+        dlg.exec_()
