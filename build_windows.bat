@@ -9,12 +9,12 @@ pyside2-rcc resources/graphics/icons.qrc -o icons_rc.py
 pip freeze > requirements.txt
 
 # Build file (pyinstaller)
-pyinstaller --specpath "pyinstaller" \
-    --workpath "pyinstaller\build" \
-    --distpath "pyinstaller\dist" \
-    --log-level=WARN \
-    --add-data="..\resources\graphics:resources\graphics" \
-    --windowed \
-    --noconfirm \
-    --icon=icon.ico \
+pyinstaller --specpath "pyinstaller" ^
+    --workpath "pyinstaller\build" ^
+    --distpath "pyinstaller\dist" ^
+    --log-level=WARN ^
+    --add-data="..\resources\graphics:resources\graphics" ^
+    --windowed ^
+    --noconfirm ^
+    --icon=icon.ico ^
     repair_p_file.py
