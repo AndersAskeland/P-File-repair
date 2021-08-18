@@ -8,6 +8,10 @@
 # 1 - Imports
 # ------------------------------------------------------------------------------
 # External modules 
+import glob
+import re
+import os
+from pathlib import Path # Window specific paths
 from PySide2.QtWidgets import QMainWindow, QFileDialog
 from PySide2.QtCore import QSize
 
@@ -89,7 +93,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         dlg = QFileDialog()
         
         # Check if folder or file.
-        if self.folder:
+        if folder:
             dlg.setLabelText(QFileDialog.Accept, "Select directory")
             dlg.setFileMode(QFileDialog.Directory)
             dlg.Option.ShowDirsOnly
@@ -117,10 +121,20 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
         # Check if folder or single file
         if self.folder:
-            pass #TODO: Go trough dict and find *.7 files. Make loop thereafter. Remember to do error checking (if no pfile).
-        else:
-            # Define class
-            p_file = pFile(path=self.p_file_path, folder=self.folder)
+            glob_path = Path(self.p_file_path)  # Ensures compatable path over UNIX and Windows
 
-            # Write TODO: define output surfix
-            p_file.repair_p_file(output_path="/Users/andersaskeland/Documents/Statistics (Local)/GE_MRI/test_GUI.7")
+            # Read all files
+            for p_file_path in glob_path.glob("*.7"):
+                output_path = os.path.splitext(p_file_path)[0] + "_repaired.7"
+
+                # Fix p-file
+                p_file = pFile(path=p_file_path, folder=self.folder)
+                p_file.repair_p_file(output_path)
+
+            #TODO: Go trough dict and find *.7 files. Make loop thereafter. Remember to do error checking (if no pfile).
+        else:
+            output_path = os.path.splitext(self.p_file_path)[0] + "_repaired.7"
+
+            # Fix p-file
+            p_file = pFile(path=self.p_file_path, folder=self.folder)
+            p_file.repair_p_file(output_path)

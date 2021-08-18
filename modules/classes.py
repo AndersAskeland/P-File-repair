@@ -86,6 +86,7 @@ class pFile(Header):
 
         # Read header
         self.header = self.read_header(file=self.file, header_locations=self.header_location, header=self.header)
+        self.file.seek(0)
         self.header_raw = self.file.read(self.header["off_data"])
 
         # Calculate header variables
@@ -176,7 +177,7 @@ class pFile(Header):
         # Extract good data from corrupted data
         for i in range(coils):
             index_end = index_start + 40960
-            dat = raw_data[int(index_start):int(index_end)]
+            dat = raw_data[int(round(index_start)):int(round(index_end))]
             index_start = index_end + 1 + excess_items
             good_data.extend(dat)
 
