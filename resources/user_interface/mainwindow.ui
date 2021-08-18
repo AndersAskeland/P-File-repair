@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>960</width>
+    <width>1110</width>
     <height>480</height>
    </rect>
   </property>
@@ -88,7 +88,7 @@
           </sizepolicy>
          </property>
          <property name="text">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:36pt;&quot;&gt;P-file repair&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-family:'Menlo','Monaco','Courier New','monospace'; font-size:14pt; color:#d4d4d4;&quot;&gt;A simple tool to repair certain GE p-files that are corrupted. This &lt;br/&gt;is specifically a problem for certain v. 28 p-files.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:36pt;&quot;&gt;P-file repair&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-family:'Menlo','Monaco','Courier New','monospace'; font-size:14pt;&quot;&gt;A simple tool to repair certain GE p-files that are corrupted. This &lt;br/&gt;is specifically a problem for certain v. 28 p-files.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
          <property name="textFormat">
           <enum>Qt::RichText</enum>
@@ -344,7 +344,7 @@
          </property>
          <property name="sizeHint" stdset="0">
           <size>
-           <width>455</width>
+           <width>530</width>
            <height>20</height>
           </size>
          </property>
@@ -373,7 +373,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>960</width>
+     <width>1110</width>
      <height>22</height>
     </rect>
    </property>

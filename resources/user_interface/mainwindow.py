@@ -20,7 +20,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(960, 480)
+        MainWindow.resize(1110, 480)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.verticalLayout_2 = QVBoxLayout(self.centralwidget)
@@ -198,7 +198,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_4 = QHBoxLayout(self.sidebar_bottom)
         self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
         self.horizontalLayout_4.setContentsMargins(-1, -1, -1, 12)
-        self.horizontalSpacer = QSpacerItem(455, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.horizontalSpacer = QSpacerItem(530, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         self.horizontalLayout_4.addItem(self.horizontalSpacer)
 
@@ -219,7 +219,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 960, 22))
+        self.menubar.setGeometry(QRect(0, 0, 1110, 22))
         MainWindow.setMenuBar(self.menubar)
 
         self.retranslateUi(MainWindow)
@@ -233,7 +233,7 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
         self.img_logo.setText("")
-        self.label_title.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:36pt;\">P-file repair</span></p><p><span style=\" font-family:'Menlo','Monaco','Courier New','monospace'; font-size:14pt; color:#d4d4d4;\">A simple tool to repair certain GE p-files that are corrupted. This <br/>is specifically a problem for certain v. 28 p-files.</span></p></body></html>", None))
+        self.label_title.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:36pt;\">P-file repair</span></p><p><span style=\" font-family:'Menlo','Monaco','Courier New','monospace'; font-size:14pt;\">A simple tool to repair certain GE p-files that are corrupted. This <br/>is specifically a problem for certain v. 28 p-files.</span></p></body></html>", None))
         self.description_1.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:18pt;\">Select P-file</span></p><p>Select a single p-file or a entire folder that contain p-files that you wish to repair.</p></body></html>", None))
         self.description_3.setText(QCoreApplication.translate("MainWindow", u"Location", None))
         self.lineEdit_selection.setPlaceholderText("")
