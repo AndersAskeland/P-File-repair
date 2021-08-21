@@ -4,7 +4,7 @@ A simple tool to repair certain GE p-files that are corrupted. This is specifica
 
 Currently, the software only works with v. 28 files. If you encounter this problem with other files and wish to use this software, please submit a feature request.
 
-Some code is adapted from the "spant" package (https://cran.r-project.org/web/packages/spant/index.html).
+Information about byte location and data type is adapted from the "spant" package (https://cran.r-project.org/web/packages/spant/index.html).
 
 ### Features
 * Select folder or single file
