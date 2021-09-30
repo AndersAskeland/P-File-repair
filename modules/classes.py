@@ -96,6 +96,9 @@ class pFile(Header):
         self.surplus_data_points = self.data_points - self.expected_data_points
         self.excess_data_points = self.surplus_data_points / self.coils
 
+        # Data
+        self.raw_data = self.read_raw_data(file=self.file, header=self.header, data_points=self.data_points)
+
         # Print
         # print(f"Header = {self.header}")
         # print(f"Coils = {self.coils}")
@@ -115,7 +118,6 @@ class pFile(Header):
             return 0
 
         # Read raw data and removes corrupted data
-        self.raw_data = self.read_raw_data(file=self.file, header=self.header, data_points=self.data_points)
         self.extracted_data = self.remove_corrupted_data(self.coils, self.raw_data, self.excess_data_points)
         
         # Writes extracted data to binary
@@ -169,15 +171,19 @@ class pFile(Header):
         ''' Removes corrupted data fro raw data. '''
         
         good_data = list()
+        bad_data = 0
         index_start = 0
         index_end = 0
 
-        # Extract good data from corrupted data
+        # Extract data from corrupted data
         for i in range(coils):
             index_end = index_start + 40960
+
+            # Read data
             dat = raw_data[int(round(index_start)):int(round(index_end))]
             index_start = index_end + 1 + excess_items
             good_data.extend(dat)
+
 
         # Return
         return good_data
@@ -197,3 +203,27 @@ class pFile(Header):
         else:
             return coils
 
+    def check_bad_data(self) -> bool:
+        ''' Checks if one removes real data. '''
+        
+        bad_data = 0
+        index_start = 0
+        index_end = 0
+
+        # Extract data from corrupted data
+        for i in range(self.coils):
+            index_end = index_start + 40960
+
+            # Bad data
+            dat = self.raw_data[int(round(index_end)):int(round(index_end + 40960))]
+            bad_data += sum(dat)
+
+            # Advances index
+            index_start = index_end + 1 + self.excess_data_points
+        
+        # Return
+        if bad_data != 0:
+            print(f"Sum of bad data {bad_data} is not equal to 0. Possible deletion of real data occured.")
+            return 0
+        else:
+            return 1

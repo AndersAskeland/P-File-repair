@@ -126,6 +126,10 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
             # Fix p-file
             p_file = pFile(path=self.p_file_path, folder=self.folder)
+            if p_file.check_bad_data() == False:
+                self.message_box(type=QMessageBox.Warning, message="Sum of bad data is not equal to 0. Possible deletion of real data occured.")
+                return 0
+    
             p_file.repair_p_file(output_path)
 
             # Message
