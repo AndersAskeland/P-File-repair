@@ -119,8 +119,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             self.message_box(type=QMessageBox.Information, message="P-files were successfully repaired.")
             return 0
 
-
-
         else:
             output_path = os.path.splitext(self.p_file_path)[0] + "_repaired.7"
 

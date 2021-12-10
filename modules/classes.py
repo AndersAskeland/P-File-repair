@@ -212,7 +212,7 @@ class pFile(Header):
 
         # Extract data from corrupted data
         for i in range(self.coils):
-            index_end = index_start + 40960
+            index_end = index_start + 40960 * 2
 
             # Bad data
             dat = self.raw_data[int(round(index_end)):int(round(index_end + 40960))]
